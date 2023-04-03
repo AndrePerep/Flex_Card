@@ -28,11 +28,16 @@ body{
     display: block;
 }
 
+/* Float карточка */
 .cardFloat{
+    background-color: #ddd;
     overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 40px;
 }
-
-.imgLeft img{
+.imgLeftFloat img{
+    /* background-image: url("img/BackpackBootstrap1.png"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -40,12 +45,61 @@ body{
     float: left;
     margin-right: 40px;
 }
-
-.cardFloat .infoRight{
-    margin-top: 40px;
+.RightFloat{
     margin-left: 40px;
-    /* text-align: center; */
 } 
+
+/* Flex карточка */
+.cardFlex{
+    max-width: 1200px;
+    margin: 60px auto;
+    background-color: #fff;
+    display: flex;
+}
+.leftFlex {
+    flex-basis: 50%;
+    overflow: hidden;
+}
+.leftFlex img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: 1s;
+}
+.leftFlex img:hover{
+    transform: scale(1.3);
+    
+}
+.rightFlex {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grid карточка */
+.cardGrid{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 500px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:    "aside main";
+}
+main{
+    background: #ddd;
+    padding: 15px;
+    grid-area: main;
+    margin-top: 40px;
+}
+aside{
+    width: 100%;
+    object-fit: cover;
+    background: #fff;
+    grid-area: aside;
+}
 
 @media (max-width: 320px) {
     .cardLeft{
@@ -57,7 +111,18 @@ body{
         width: 200px;
     }
 
-    .cardFloat .imgLeft{
-        width: 100%;}
-}
+    .imgLeftFLoat img{
+        width: 100%;
+    }
 
+    .cardFlex{
+        flex-direction: column;
+    }
+
+    .grid{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas:    "aside"
+                                "main";
+    }
+}
